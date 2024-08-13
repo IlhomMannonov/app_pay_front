@@ -1,4 +1,4 @@
-const base_api = "http://localhost:3001/api/v1";
+const base_api = "https://apppay-production.up.railway.app/api/v1";
 
 // Get the provider object from localStorage
 const provider = JSON.parse(localStorage.getItem('provider'));

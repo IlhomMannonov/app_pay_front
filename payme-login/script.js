@@ -60,7 +60,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     };
 
     // Send the API request
-    fetch('http://localhost:3001/api/v1/payme-login', {
+    fetch('https://apppay-production.up.railway.app/api/v1/payme-login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
