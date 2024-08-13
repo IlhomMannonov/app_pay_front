@@ -1,11 +1,14 @@
+const base_api = "http://localhost:3001/api/v1"
+
 const sended_phone = localStorage.getItem('send_sms_phone')
 if (!sended_phone){
     window.location.href = '../index.html';
 }
 
-console.log(localStorage.getItem('send_sms_phone'));
+localStorage.removeItem('send_sms_phone')
 
-document.getElementById('send_phone').value = "asd";
+
+document.getElementById('send_phone').textContent = localStorage.getItem('send_sms_phone');
 
 
 let remainingSeconds = 60;
@@ -45,5 +48,55 @@ document.querySelectorAll('.code-input').forEach((input, index, inputs) => {
         if (this.value.length === 0 && index > 0) {
             inputs[index - 1].focus();
         }
+
     });
+});
+
+document.querySelector('.continue').addEventListener('click', function() {
+    // Collect the SMS code from the inputs
+    const codeInputs = document.querySelectorAll('.code-input');
+    const code = Array.from(codeInputs).map(input => input.value).join('');
+
+    if (code.length !== 6) {
+        return;
+    }
+
+    // Prepare data to be sent to the API
+    const data = {
+        user_id: localStorage.getItem('user_id'),
+        code: code
+    };
+
+    // Send the API request
+    fetch(`${base_api}/payme-confirm-sms`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Handle success response
+            if (data.success) {
+                window.location.href = '../..?user_id=' + localStorage.getItem('user_id');
+                localStorage.removeItem('send_sms_phone')
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+
+        });
+});
+
+
+document.querySelector('.Cancel').addEventListener('click', () => {
+    window.location.href = '../index.html'; // Or another appropriate action
+});
+
+window.addEventListener('beforeunload', function(event) {
+    // Redirect the user to the index.html
+    window.location.href = '../index.html';
 });

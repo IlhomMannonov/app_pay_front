@@ -33,6 +33,8 @@
 
 <script>
     // To'liq URL ni olish
+    localStorage.removeItem('send_sms_phone')
+
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('user_id');
     const base_api = "http://localhost:3001/api/v1"
@@ -80,6 +82,7 @@
                             window.location.href = method.redirect_url; // Or you can stay on the same method's redirect page
 
                         } else {
+                            localStorage.setItem('payment-type', JSON.stringify(data.data))
                             // If data.success is true, you might want to navigate to another page or handle success
                             window.location.href = 'category'; // Or you can stay on the same method's redirect page
                         }

@@ -98,7 +98,7 @@ body{
 .continue{
     width: 80%;
     font-size: 22px;
-    height: 100px;
+    height:70px;
     color: white;
     border: 1px solid white;
     margin-top: 230px;
@@ -117,4 +117,3 @@ body{
     border-radius: 20px;
     background-color: #ffffff;
 }
-

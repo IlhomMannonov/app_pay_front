@@ -7,36 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="text"><h1>IN-POS</h1></div>
-    <div class="jadvall">
-    
-<div class="container">
-    <div>
-      Abanet hisob-raqami
-    </div>
-    <div>
-      1651161646
-    </div>
-    
-  </div>
-  
-  <div class="container">
-    <div>
-      Balans
-    </div>
-    <div>
-      50 000.00
-    </div>
-  </div>
+<div class="text"><h1>IN-POS</h1></div>
+<div class="jadvall" id="account-details-container">
+    <!-- Dynamic content will be inserted here -->
 </div>
-    <div class="textlittle"><p>Tolov summasi</p></div>
-    <div class="form-container">
-        <form action="/submit" method="post">
-            <input class="acauntnumber" type="text" id="account-number" name="account-number" placeholder="Majburiy" required>
-            <div class="examples"><div class="exam n1"><p>122348723587</p></div>   <div class="exam n3"><p>12468732468</p></div>  <div class="exam n3"><p>12468732468</p></div>  <div class="exam n3"><p>12468732468</p></div>   <div class="exam n3"><p>12468732468</p></div>  <div class="exam n3"><p>12468732468</p></div>  <div class="exam n3"><p>12468732468</p></div></div>
-        </form>
-    </div>
-    <center><div><input class="continue" type="submit" value="Submit"></div></center>
-    <center><button class="Cancel">Cancel</button></center>
+<div class="textlittle"><p>Tolov summasi</p></div>
+<div class="form-container">
+    <form action="/submit" method="post">
+        <label for="account-number"></label>
+        <input class="acauntnumber" type="text" id="account-number" name="account-number" placeholder="Majburiy" required>
+    </form>
+</div>
+<div style="text-align: center;">
+    <div><input class="continue" type="submit" value=""></div>
+</div>
+<div style="text-align: center;"><button class="Cancel">Cancel</button></div>
+
+<script src="script.js"></script> <!-- Your custom JS file -->
+
 </body>
 </html>

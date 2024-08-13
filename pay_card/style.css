@@ -5,7 +5,7 @@
     padding: 0;
 }
 body{
-    font-family: "Raleway", sans-serif;
+    font-family: "Lato", sans-serif; /* or "Roboto", "Open Sans" */
 }
 .text{
     margin-left: 5%;
@@ -87,7 +87,7 @@ body{
     align-items: center;
     padding: 10px;
     border-radius: 5px;
-  }
+}
 .jadvall{
     width: 90%;
     margin-left: 5%;
@@ -109,10 +109,10 @@ body{
 .continue{
     width: 80%;
     font-size: 22px;
-    height: 100px;
+    height:70px;
     color: white;
     border: 1px solid white;
-    margin-top: 50px;
+    margin-top: 230px;
     font-family: Nunito "Sans";
     border-radius: 20px;
     background-color: #004CFF;
@@ -129,7 +129,7 @@ body{
     background-color: #ffffff;
 }
 
-    
+
 .credit-card {
     width: 300px;
     height: 180px;
