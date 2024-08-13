@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div id="loader" class="loader"></div> <!-- Loader element -->
+
+<section class="account">
+    <div class="profile">
+        <div class="probox"><h3 id="user-name">loading...</h3></div>
+        <div class="probox profiles">
+            <div class="dumoloq"><img id="img-id" src="image/default_image.png" width="100%" height="100%"
+                                      alt="image/default_image.png"></div>
+        </div>
+    </div>
+</section>
+
+<div class="turlar">
+    <br><br><br>
+    <h1 style="margin-left: 7%;">To'lov turlari</h1>
+    <br>
+    <div style="text-align: center;">
+        <div id="payment-methods" class="containerd"></div>
+    </div>
+</div>
+
+<div id="payment-methods" class="containerd"></div>
+
+<script>
+    // To'liq URL ni olish
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('user_id');
+    const base_api = "http://localhost:3001/api/v1"
+
+    async function loadPaymentMethods() {
+        try {
+            const response = await fetch(base_api + "/payment-types");
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const paymentMethods = await response.json();
+
+            const container = document.getElementById('payment-methods');
+
+            paymentMethods.forEach(method => {
+                const box = document.createElement('div');
+                box.classList.add('boxd');
+
+                const link = document.createElement('a');
+                link.href = method.redirect_url;
+
+                // Add event listener to log message on click
+                link.addEventListener('click', async function (event) {
+                    event.preventDefault(); // Prevent the default behavior
+                    console.log('Bosildi!');
+
+                    const req_data = {
+                        user_id: userId,
+                        payment_id: method.id
+                    };
+
+                    try {
+                        const resdata = await fetch(base_api + "/payment-check", {
+                            method: 'POST', // HTTP method
+                            headers: {
+                                'Content-Type': 'application/json', // Set content type to JSON
+                            },
+                            body: JSON.stringify(req_data) // Convert the data to JSON string
+                        });
+
+                        const data = await resdata.json();
+
+                        if (data.success === false) {
+                            // Redirect to a new page if data.success is false
+                            window.location.href = method.redirect_url; // Or you can stay on the same method's redirect page
+
+                        } else {
+                            // If data.success is true, you might want to navigate to another page or handle success
+                            window.location.href = 'category'; // Or you can stay on the same method's redirect page
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                    }
+                });
+
+                const img = document.createElement('img');
+                img.src = method.image_url !== 'yoq' ? method.image_url : 'image/default_image.png'; // Fallback image if not available
+                img.style.width = '100%';
+                img.style.height = '100%';
+
+                link.appendChild(img);
+                box.appendChild(link);
+                container.appendChild(box);
+            });
+        } catch (error) {
+            console.error('Error fetching payment methods:', error);
+        }
+    }
+
+    async function loadUserData() {
+        try {
+
+
+            const response = await fetch(base_api + "/users-id/" + userId);
+            if (response.status !== 200) {
+                throw new Error('Network response was not ok');
+            }
+
+            const userData = await response.json();
+
+            // Foydalanuvchi ismini HTML elementiga joylash
+            document.getElementById("user-name").textContent = userData.first_name + " " + userData.last_name;
+
+            // Rasm manzilini HTML img elementining src atributiga joylash
+            document.getElementById("img-id").src = userData.profile_url;
+
+            localStorage.removeItem('user_id')
+            localStorage.setItem('user_id', userData.id)
+
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+        }
+    }
+
+    loadUserData();
+    loadPaymentMethods();
+</script>
+</body>
+</html>

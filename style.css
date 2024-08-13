@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+}
+
+.containerd {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+.boxd {
+    width: 48%; /* Ikkita quti yonma-yon bo'lishi uchun 48% */
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 10%;
+    box-shadow: 0 0 5px 2.5px #c2c2c266;
+    height: auto; /* Responsive dizayn uchun balandlik olib tashlandi */
+}
+
+img {
+    width: 100%;
+    height: auto; /* Asl nisbatni saqlash uchun balandlik avtomatik */
+    border-radius: 10%;
+}
+
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 55px;
+    margin-top: 30px;
+    background-color: rgb(241, 240, 240);
+    border-radius: 30px;
+    margin-left: 6%;
+}
+
+.probox {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.probox h3 {
+    text-align: center;
+    margin-top: 17px;
+}
+
+.dumoloq {
+    width: 50px;
+    height: 50px;
+    margin-left: 65%;
+    border: 3px solid purple;
+    border-radius: 15px;
+    padding: 3px;
+    margin-top: 2px;
+}
+
+.dumoloq img {
+    border-radius: 15px;
+}
+
+/* Mobil uchun maxsus uslublar */
+@media (max-width: 768px) {
+    .containerd {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .boxd {
+        width: 48%; /* Mobil ekran uchun qutilar 48% kenglikda bo'ladi */
+    }
+
+    .profile {
+        width: 100%;
+        margin-left: 0;
+    }
+
+
+}
+

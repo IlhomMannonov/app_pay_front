@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "Raleway", sans-serif;
+}
+.text{
+    margin-left: 5%;
+    width: 90%;
+    height: 150px;
+    margin-top: 40px;
+}
+.textlittle{
+    margin-left: 5%;
+    width: 90%;
+    margin-top: 50px;
+    height: 60px;
+}
+.acauntnumber{
+    width: 90%;
+    margin-left: 4%;
+    padding: 10px;
+    font-size: 20px;
+    height: 50px;
+    border: 1px solid #ffffff;
+    background-color: #F1F4FE;
+    border-radius: 15px;
+}
+.submit{
+    width: 20%;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    height: 40px;
+    border: 1px solid white;
+    background-color: #004CFF;
+    border-radius: 10px;
+    margin-top: 70px;
+    margin-right: 5%;
+    float: right;
+}
+.examples {
+    display: flex;
+    flex-wrap: wrap; /* Elementlarni qatorlarga ajratish */
+    justify-content: flex-start; /* Elementlarni chapga joylashtirish */
+    gap: 10px; /* Elementlar orasidagi bo'shliq */
+    margin-top: 20px;
+    width: 100%;
+}
+
+.exam {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 25%; /* Har bir elementning kengligi */
+    padding: 5px;
+    height: 30px;
+    margin-left: 5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 200px; /* Maksimal kenglikni cheklash */
+    text-align: center;
+    display: flex; /* Ichki tarkibni markazlashtirish */
+    align-items: center;
+    justify-content: center;
+}
+
+.exam p {
+    font-size: 16px;
+    margin: 0; /* Paragraflar orasidagi standart bo'shliqni olib tashlash */
+}
+
+.n1 {
+    background-color: #E5EBFC; /* Maxsus fon rangi */
+}
+
+.n3 {
+    background-color: #E5EBFC; /* Maxsus fon rangi */
+}
+
+
+
+
+.continue{
+    width: 80%;
+    font-size: 22px;
+    height:70px;
+    color: white;
+    border: 1px solid white;
+    margin-top: 230px;
+    font-family: Nunito "Sans";
+    border-radius: 20px;
+    background-color: #004CFF;
+}
+.Cancel{
+    width: 20%;
+    font-size: 22px;
+    height:70px;
+    color: rgb(0, 0, 0);
+    border: 1px solid white;
+    margin-top: 20px;
+    font-family: Nunito "Sans";
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+

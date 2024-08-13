@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1{
+    margin-left: 5%;
+}
+body{
+    font-family: "Raleway", sans-serif;
+
+}
+.button-container {
+    display: grid;
+    margin-top: 100px;
+    grid-template-columns: repeat(2, 150px); /* 2 buttons per row */
+    gap: 10px 80px; /* Space between buttons */
+    justify-content: center; /* Center grid horizontally */
+}
+.ss{
+ margin-left: -20%;
+}
+.btn {
+    font-size: 16px;
+    width: 120%;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border: 2px solid #FFEBEB;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 40px;
+    transition: background-color 0.3s ease;
+}
+
